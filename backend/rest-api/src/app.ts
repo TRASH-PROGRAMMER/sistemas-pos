@@ -17,9 +17,9 @@ app.get('/', (_req, res) => {
      const receivedData = req.body
      console.log('Received data:', receivedData)
      guardar_datos.push(receivedData)
-     res.status(200).send({ message: 'Data received successfully', data: receivedData })
+     res.status(200).json({ message: 'Data received successfully', data: receivedData })
  })
- app.get('/data', (req, res) => {
+ app.get('/data', (_req, res) => {
    res.status(200).json({ message: 'Data retrieved successfully', data: guardar_datos })
          })
      
