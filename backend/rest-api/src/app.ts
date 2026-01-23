@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import './config/db'
 
 interface DataItem {
     [key: string]: any
@@ -11,16 +12,16 @@ app.use(express.json())
 
 let guardar_datos: DataItem[] = []
 app.get('/', (_req, res) => {
-    res.status(200).send('Hello World!de la api')
+    res.status(200).send('Hello World!de la api de Ex-markert')
 })
  app.post('/data', (req, res) => {
      const receivedData = req.body
      console.log('Received data:', receivedData)
      guardar_datos.push(receivedData)
-     res.status(200).json({ message: 'Data received successfully', data: receivedData })
+     res.status(200).json({ message: 'Data  sentsuccessfully', data: receivedData })
  })
  app.get('/data', (_req, res) => {
-   res.status(200).json({ message: 'Data retrieved successfully', data: guardar_datos })
+   res.status(200).json({ message: 'Data  received successfully', data: guardar_datos })
          })
      
 export default app
