@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import './config/db'
 import { AppDataSource } from './config/db'
-import { Product } from './modules/product/domain/product'
+import { Product } from './modules/product/domain/entities/product'
 // Initialize Express app
 const app = express()
 app.use(cors())

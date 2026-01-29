@@ -1,4 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm"
+
 // Define a class for the Product entity
 @Entity()
 export class Product {
@@ -10,6 +11,10 @@ export class Product {
     description!: string
     @Column()
     price!: number
+    @Column({ default: "Sin categoría" })
+    category!: string
+    @Column({ default: 0 })
+    stock!: number
     @CreateDateColumn()
     createdAt!: Date
     @UpdateDateColumn()
