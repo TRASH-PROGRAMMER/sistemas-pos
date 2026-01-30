@@ -1,6 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn, OneToMany } from "typeorm"
 import { cliente } from "./cliente"
 import { Empleado } from "./empleado"
+import { DetalleVenta } from "./detalle_venta"
 
 @Entity()
 export class Venta {
@@ -18,12 +19,15 @@ export class Venta {
     @ManyToOne(()=>cliente, (cliente)=>cliente.venta,{ 
         nullable: false,
         onDelete: "CASCADE" })
-    @JoinColumn({name:"cliente_id"})
+    @JoinColumn({name:"id_cliente"})
     cliente!: cliente
     
-    @ManyToOne(()=>Empleado, (empleado)=>empleado.venta,{ 
+    @ManyToOne(()=>Empleado, (empleado)=>empleado.ventas,{ 
         nullable: false,
         onDelete: "CASCADE" })
-    @JoinColumn({name:"empleado_id"})
+    @JoinColumn({name:"id_empleado"})
     empleado!: Empleado
+
+    @OneToMany(()=>DetalleVenta, (detalle_venta)=>detalle_venta.venta)
+    detalle_venta!: DetalleVenta[]
 }

@@ -1,23 +1,36 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from "typeorm"
+import { DetalleVenta } from "./detalle_venta"
+import { DetalleCompra } from "./detalle_compra"
 
-// Define a class for the Product entity
 @Entity()
 export class Product {
     @PrimaryGeneratedColumn("uuid")
     id!: string
+    
     @Column()
-    name!: string
+    nombre!: string
+    
     @Column()
-    description!: string
+    descripcion!: string
+    
     @Column()
-    price!: number
-    @Column({ default: "Sin categoría" })
-    category!: string
+    precio!: number
+    
     @Column({ default: 0 })
     stock!: number
+    
+    @Column({ default: "Sin categoría" })
+    categoria!: string
+    
     @CreateDateColumn()
     createdAt!: Date
+    
     @UpdateDateColumn()
     updatedAt!: Date
+    
+    @OneToMany(()=>DetalleVenta, (detalle_venta)=>detalle_venta.producto)
+    detalle_venta!: DetalleVenta[]
+    
+    @OneToMany(()=>DetalleCompra, (detalle_compra)=>detalle_compra.producto)
+    detalle_compra!: DetalleCompra[]
 }
-
