@@ -59,9 +59,11 @@ app.get('/', (_req, res) => {
              return res.status(404).json({ message: 'Product not found' })
          }
          
-         product.name = req.body.name
-         product.description = req.body.description
-         product.price = req.body.price
+         product.nombre = req.body.nombre
+         product.descripcion = req.body.descripcion
+         product.precio = req.body.precio
+         product.stock = req.body.stock
+         product.categoria = req.body.categoria
          
          await productRepository.save(product)
          
