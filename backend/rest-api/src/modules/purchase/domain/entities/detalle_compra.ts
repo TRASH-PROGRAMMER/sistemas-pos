@@ -1,7 +1,9 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from "typeorm"
 import { Compra } from "./compra"
-import { Product } from "./product"
+import { Product } from "../../../product/domain/entities/product"
 
+/* La clase `DetalleCompra` representa una entidad de detalle de compra con propiedades como id, 
+compra asociada, producto, precio de compra y subtotal.*/
 @Entity()
 export class DetalleCompra {
     @PrimaryGeneratedColumn("uuid")

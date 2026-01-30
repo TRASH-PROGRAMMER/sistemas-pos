@@ -1,9 +1,12 @@
 
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from "typeorm"
-import { Venta } from "./venta"
+import { Venta } from "../../../sales/domain/entities/venta"
 import { Usuario } from "./usuario"
-import { Compra } from "./compra"
+import { Compra } from "../../../purchase/domain/entities/compra"
 
+/* La clase `Empleado` representa una entidad con propiedades para detalles del empleado como nombre, 
+nombre de usuario, contraseña, rol, estado y 
+relaciones con ventas, compras y usuarios. */
 @Entity()
 export class Empleado {
     @PrimaryGeneratedColumn("uuid")

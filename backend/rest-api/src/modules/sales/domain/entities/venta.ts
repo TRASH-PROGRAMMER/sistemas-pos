@@ -1,8 +1,9 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn, OneToMany } from "typeorm"
-import { cliente } from "./cliente"
-import { Empleado } from "./empleado"
+import { cliente } from "../../../customer/domain/entities/cliente"
+import { Empleado } from "../../../employee/domain/entities/empleado"
 import { DetalleVenta } from "./detalle_venta"
-
+/* La clase `Venta` representa una entidad de venta con propiedades como id, fecha, numero de venta, total, tipo de pago, 
+relaciones con cliente, empleado y detalle de venta. */
 @Entity()
 export class Venta {
     @PrimaryGeneratedColumn("uuid")

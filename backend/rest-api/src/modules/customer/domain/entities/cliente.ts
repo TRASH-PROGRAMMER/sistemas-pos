@@ -1,5 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from "typeorm"
-import { Venta } from "./venta"
+import { Venta } from "../../../sales/domain/entities/venta"
+/* La clase "cliente" representa una entidad con propiedades para la información de un cliente y 
+una relación de uno a muchos con la entidad "Venta". */
 @Entity()
 export class cliente {
     @PrimaryGeneratedColumn("uuid")

@@ -1,7 +1,10 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from "typeorm"
-import { DetalleVenta } from "./detalle_venta"
-import { DetalleCompra } from "./detalle_compra"
+import { DetalleVenta } from "../../../sales/domain/entities/detalle_venta"
+import { DetalleCompra } from "../../../purchase/domain/entities/detalle_compra"
 
+/* La clase `Producto` define propiedades para una entidad de producto con detalles como nombre, 
+descripción, precio, stock, categoría, fecha de creación y 
+fecha de actualización, junto con relaciones con las entidades `DetalleVenta` y `DetalleCompra`. */
 @Entity()
 export class Product {
     @PrimaryGeneratedColumn("uuid")
