@@ -10,7 +10,7 @@ import { Product } from "../entities/product"
  */
 export interface ProductRepositoryPort {
     findAll(): Promise<Product[]>
-    findById(id: string): Promise<Product>
+    findById(id: string): Promise<Product | null>
     save(product: Product): Promise<Product>
     update(product: Product): Promise<Product>
     delete(product: Product): Promise<Product>
